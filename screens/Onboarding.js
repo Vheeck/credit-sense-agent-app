@@ -1,70 +1,121 @@
 import React from "react";
 import {
-  ImageBackground,
-  Image,
   StyleSheet,
+  ImageBackground,
+  Dimensions,
   StatusBar,
-  Dimensions
+  KeyboardAvoidingView,
+  Image
 } from "react-native";
-import { Block, Button, Text, theme } from "galio-framework";
+import { Block, Checkbox, Text, theme } from "galio-framework";
 
-const { height, width } = Dimensions.get("screen");
+import { Button, Icon, Input } from "../components";
+import { Images, argonTheme } from "../constants";
+import { ScrollView } from "react-native-gesture-handler";
 
-import argonTheme from "../constants/Theme";
-import Images from "../constants/Images";
+const { width, height } = Dimensions.get("screen");
 
 class Onboarding extends React.Component {
   render() {
     const { navigation } = this.props;
 
     return (
-      <Block flex style={styles.container}>
-        <StatusBar hidden />
-        <Block flex center>
-        <ImageBackground
-            source={Images.Onboarding}
-            style={{ height, width, zIndex: 1 }}
-          />
-        </Block>
-        <Block center>
-          <Image source={Images.LogoOnboarding} style={styles.logo} />
-        </Block>
-        <Block flex space="between" style={styles.padded}>
-            <Block flex space="around" style={{ zIndex: 2 }}>
-              <Block style={styles.title}>
-                <Block>
-                  <Text color="white" size={60}>
-                    Design
-                  </Text>
+        <Block flex middle>
+          <StatusBar hidden />
+          <ImageBackground
+            source={Images.RegisterBackground}
+            style={{ width, height, zIndex: 1, paddingTop: theme.SIZES.BASE * 6, }}
+          >
+            <Block flex middle>
+                <Block flex={0.25} middle style={styles.socialConnect}>
+                  <Image source={Images.Logo1} style={{ width: 250, height:200, marginTop:50}}></Image>
+                 
+                  
                 </Block>
-                <Block>
-                  <Text color="white" size={60}>
-                    System
-                  </Text>
+                <Block flex>
+                  
+                  <Block flex center>
+                    <KeyboardAvoidingView
+                      style={{ flex: 1, paddingTop:6, }}
+                      behavior="padding"
+                      enabled
+                    >
+                      <ScrollView>
+                        <Block style={{ marginBottom: 75, }}></Block>
+                      <Block width={width * 0.8} style={{ marginBottom: 15, }}>
+                        <Input
+                        
+                          borderless
+                          placeholder="Email"
+                          iconContent={
+                            <Icon
+                              size={16}
+                              color={argonTheme.COLORS.ICON}
+                              name="hat-3"
+                              family="ArgonExtra"
+                              style={styles.inputIcons}
+                            />
+                          }
+                          style={styles.inp}
+                        />
+                      </Block>
+                     
+                      <Block width={width * 0.8}>
+                        <Input
+                          password
+                          borderless
+                          placeholder="Password"
+                          iconContent={
+                            <Icon
+                              size={16}
+                              color={argonTheme.COLORS.ICON}
+                              name="padlock-unlocked"
+                              family="ArgonExtra"
+                              style={styles.inputIcons}
+                            />
+                          }
+                          style={styles.inp}
+  
+                        />
+                       
+                      </Block>
+                      <Block row width={width * 0.75}>
+                        <Checkbox
+                          checkboxStyle={{
+                            borderWidth: 3
+                          }}
+                          color={argonTheme.COLORS.PRIMARY}
+                          label="I agree with the"
+                          
+                          color="#FFCC2A"
+                        />
+                        
+                       
+                        <Text color="#ffffff">&nbsp; Privacy Policy</Text>
+                      </Block>
+                      <Block middle>
+                        <Button color="primary" style={styles.createButton} onPress={() => navigation.navigate("App")} >
+                          <Text bold size={14} color={argonTheme.COLORS.WHITE}>
+                            Log In
+                          </Text>
+                          
+                        </Button>
+                      </Block>
+                      <Block middle >
+                      <Text color='yellow' onPress={() => navigation.navigate("create")}>Create an account?</Text>
+                      </Block>
+                      </ScrollView>
+                    </KeyboardAvoidingView>
+                  </Block>
                 </Block>
-                <Block style={styles.subTitle}>
-                  <Text color="white" size={16}>
-                    Fully coded React Native components.
-                  </Text>
-                </Block>
-              </Block>
-              <Block center>
-                <Button
-                  style={styles.button}
-                  color={argonTheme.COLORS.SECONDARY}
-                  onPress={() => navigation.navigate("App")}
-                  textStyle={{ color: argonTheme.COLORS.BLACK }}
-                >
-                  Get Started
-                </Button>
-              </Block>
-          </Block>
+             
+            </Block>
+          </ImageBackground>
         </Block>
-      </Block>
-    );
+      );
+    }
   }
-}
-
+  
 const styles = StyleSheet.create({
   container: {
     backgroundColor: theme.COLORS.BLACK
@@ -93,7 +144,62 @@ const styles = StyleSheet.create({
   },
   subTitle: {
     marginTop: 20
-  }
+  },
+  registerContainer: {
+    width: width * 0.9,
+    height: height * 0.78,
+    backgroundColor: "#F4F5F7",
+    borderRadius: 4,
+    shadowColor: argonTheme.COLORS.BLACK,
+    shadowOffset: {
+      width: 0,
+      height: 4
+    },
+    shadowRadius: 8,
+    shadowOpacity: 0.1,
+    elevation: 1,
+    overflow: "hidden"
+  },
+  socialConnect: {
+    
+    },
+  socialButtons: {
+    width: 120,
+    height: 40,
+    backgroundColor: "#fff",
+    shadowColor: argonTheme.COLORS.BLACK,
+    shadowOffset: {
+      width: 0,
+      height: 4
+    },
+    shadowRadius: 8,
+    shadowOpacity: 0.1,
+    elevation: 1
+  },
+  socialTextButtons: {
+    color: argonTheme.COLORS.PRIMARY,
+    fontWeight: "800",
+    fontSize: 14
+  },
+  inputIcons: {
+    marginRight: 12
+  },
+  passwordCheck: {
+    paddingLeft: 15,
+    paddingTop: 13,
+    paddingBottom: 30
+  },
+  createButton: {
+    width: width * 0.75,
+    marginTop: 15,
+    borderRadius: 20,
+    backgroundColor: '#FFCC2A',
+    
+  },
+  inp: {
+    borderRadius: 20
+  },
+  
 });
 
 export default Onboarding;

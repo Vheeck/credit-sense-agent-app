@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { Block, Text, theme } from "galio-framework";
 
-import { Button } from "../components";
+import { Button, Input, } from "../components";
 import { Images, argonTheme } from "../constants";
 import { HeaderHeight } from "../constants/utils";
 
@@ -45,240 +45,233 @@ class Profile extends React.Component {
                     space="evenly"
                     style={{ marginTop: 20, paddingBottom: 24 }}
                   >
-                    <Button
-                      small
-                      style={{ backgroundColor: argonTheme.COLORS.INFO }}
-                    >
-                      CONNECT
-                    </Button>
-                    <Button
-                      small
-                      style={{ backgroundColor: argonTheme.COLORS.DEFAULT }}
-                    >
-                      MESSAGE
-                    </Button>
+                   
                   </Block>
                   <Block row space="between">
                     <Block middle>
                       <Text
                         bold
-                        size={18}
+                        size={16}
                         color="#525F7F"
                         style={{ marginBottom: 4 }}
                       >
-                        2K
+                        233
                       </Text>
-                      <Text size={12} color={argonTheme.COLORS.TEXT}>Orders</Text>
+                      <Text size={11} color={argonTheme.COLORS.TEXT}>Customers</Text>
                     </Block>
                     <Block middle>
                       <Text
                         bold
                         color="#525F7F"
-                        size={18}
+                        size={17}
                         style={{ marginBottom: 4 }}
                       >
-                        10
+                         10
                       </Text>
-                      <Text size={12} color={argonTheme.COLORS.TEXT}>Photos</Text>
+                      <Text size={12} color={argonTheme.COLORS.TEXT}>Loans</Text>
                     </Block>
                     <Block middle>
                       <Text
                         bold
                         color="#525F7F"
-                        size={18}
+                        size={15}
                         style={{ marginBottom: 4 }}
                       >
-                        89
+                         ₦90
                       </Text>
-                      <Text size={12} color={argonTheme.COLORS.TEXT}>Comments</Text>
+                      <Text size={12} color={argonTheme.COLORS.TEXT}>Balance</Text>
                     </Block>
                   </Block>
                 </Block>
                 <Block flex>
                   <Block middle style={styles.nameInfo}>
                     <Text bold size={28} color="#32325D">
-                      Jessica Jones, 27
+                      Jessica Jones
                     </Text>
                     <Text size={16} color="#32325D" style={{ marginTop: 10 }}>
-                      San Francisco, USA
+                    Jessica@gmail.com
                     </Text>
                   </Block>
                   <Block middle style={{ marginTop: 30, marginBottom: 16 }}>
                     <Block style={styles.divider} />
                   </Block>
-                  <Block middle>
-                    <Text
-                      size={16}
-                      color="#525F7F"
-                      style={{ textAlign: "center" }}
-                    >
-                      An artist of considerable range, Jessica name taken by
-                      Melbourne …
-                    </Text>
-                    <Button
-                      color="transparent"
-                      textStyle={{
-                        color: "#233DD2",
-                        fontWeight: "500",
-                        fontSize: 16
-                      }}
-                    >
-                      Show more
-                    </Button>
-                  </Block>
+                 
                   <Block
                     row
                     style={{ paddingVertical: 14, alignItems: "baseline" }}
                   >
                     <Text bold size={16} color="#525F7F">
-                      Album
+                      My Account
                     </Text>
                   </Block>
                   <Block
                     row
                     style={{ paddingBottom: 20, justifyContent: "flex-end" }}
                   >
-                    <Button
-                      small
-                      color="transparent"
-                      textStyle={{ color: "#5E72E4", fontSize: 12 }}
-                    >
-                      View all
-                    </Button>
+                    
                   </Block>
-                  <Block style={{ paddingBottom: -HeaderHeight * 2 }}>
-                    <Block row space="between" style={{ flexWrap: "wrap" }}>
-                      {Images.Viewed.map((img, imgIndex) => (
-                        <Image
-                          source={{ uri: img }}
-                          key={`viewed-${img}`}
-                          resizeMode="cover"
-                          style={styles.thumb}
-                        />
-                      ))}
+                 
+                  {/* <Text bold size={18} color="#525F7F">
+                      Agent Information
+                    </Text> */}
+                    
+                  <Text bold size={13} color="#525F7F">
+                      Agent ID
+                    </Text>
+
+                    <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
+          <Input
+            right
+            placeholder="AGT2345647545342453"
+            editable={false}
+            style={{
+              borderColor: argonTheme.COLORS.INFO,
+              borderRadius: 4,
+              backgroundColor: "#d3d3d3"
+            }}
+            iconContent={<Block />}
+          />
+        </Block>
+
+        <Text bold size={13}  color="#525F7F">
+                     Email
+                    </Text>
+
+                    <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
+          <Input
+            right
+            placeholder="Jessica@gmail.com"
+            
+            style={{
+              borderColor: argonTheme.COLORS.INFO,
+              borderRadius: 4,
+              backgroundColor: "#fff"
+            }}
+            iconContent={<Block />}
+            style={styles.inp}
+          />
+        </Block>
+
+        <Text bold size={13} color="#525F7F">
+                      Password
+                    </Text>
+
+                    <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
+          <Input
+            right
+            placeholder="AGT2345647545342453"
+            style={{
+              borderColor: argonTheme.COLORS.INFO,
+              borderRadius: 4,
+              backgroundColor: "#fff"
+            }}
+            iconContent={<Block />}
+            style={styles.inp}
+          />
+        </Block>
+
+        <Text bold size={13} color="#525F7F">
+                     First name
+                    </Text>
+
+                    <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
+          <Input
+            right
+            placeholder="Jessica"
+            style={{
+              borderColor: argonTheme.COLORS.INFO,
+              borderRadius: 4,
+              backgroundColor: "#fff"
+            }}
+            iconContent={<Block />}
+            style={styles.inp}
+          />
+        </Block>
+
+        <Text bold size={13} color="#525F7F">
+                     Last name
+                    </Text>
+
+                  <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
+          <Input
+            right
+            placeholder="Jones"
+            style={{
+              borderColor: argonTheme.COLORS.INFO,
+              borderRadius: 4,
+              backgroundColor: "#fff"
+            }}
+            iconContent={<Block />}
+            style={styles.inp}
+          />
+        </Block>
+
+        <Text bold size={13} color="#525F7F">
+                     Area(s) of assignment
+                    </Text>
+
+
+        <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
+          <Input
+            right
+            placeholder="Ijede"
+            editable={false}
+            style={{
+              borderColor: argonTheme.COLORS.INFO,
+              borderRadius: 4,
+              backgroundColor: "#d3d3d3"
+            }}
+            iconContent={<Block />}
+          />
+        </Block>
+
+        <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
+          <Input
+            right
+            placeholder="Ewuowa"
+            editable={false}
+            style={{
+              borderColor: argonTheme.COLORS.INFO,
+              borderRadius: 4,
+              backgroundColor: "#d3d3d3"
+            }}
+            iconContent={<Block />}
+          />
+        </Block>
+
+        <Block style={{ paddingHorizontal: theme.SIZES.BASE }}>
+          <Input
+            right
+            placeholder="Agura"
+            editable={false}
+            style={{
+              borderColor: argonTheme.COLORS.INFO,
+              borderRadius: 4,
+              backgroundColor: "#d3d3d3"
+            }}
+            iconContent={<Block />}
+          />
+        </Block>
+
+        <Block middle style={{ marginBottom: 15,}}>
+                      <Button color="primary" style={styles.createButton} >
+                        <Text bold size={14} color={argonTheme.COLORS.WHITE}>
+                         Save
+                        </Text>
+                        
+                      </Button>
                     </Block>
-                  </Block>
+    
+
+        
                 </Block>
               </Block>
             </ScrollView>
           </ImageBackground>
         </Block>
-        {/* <ScrollView showsVerticalScrollIndicator={false} 
-                    contentContainerStyle={{ flex: 1, width, height, zIndex: 9000, backgroundColor: 'red' }}>
-        <Block flex style={styles.profileCard}>
-          <Block middle style={styles.avatarContainer}>
-            <Image
-              source={{ uri: Images.ProfilePicture }}
-              style={styles.avatar}
-            />
-          </Block>
-          <Block style={styles.info}>
-            <Block
-              middle
-              row
-              space="evenly"
-              style={{ marginTop: 20, paddingBottom: 24 }}
-            >
-              <Button small style={{ backgroundColor: argonTheme.COLORS.INFO }}>
-                CONNECT
-              </Button>
-              <Button
-                small
-                style={{ backgroundColor: argonTheme.COLORS.DEFAULT }}
-              >
-                MESSAGE
-              </Button>
-            </Block>
-
-            <Block row space="between">
-              <Block middle>
-                <Text
-                  bold
-                  size={12}
-                  color="#525F7F"
-                  style={{ marginBottom: 4 }}
-                >
-                  2K
-                </Text>
-                <Text size={12}>Orders</Text>
-              </Block>
-              <Block middle>
-                <Text bold size={12} style={{ marginBottom: 4 }}>
-                  10
-                </Text>
-                <Text size={12}>Photos</Text>
-              </Block>
-              <Block middle>
-                <Text bold size={12} style={{ marginBottom: 4 }}>
-                  89
-                </Text>
-                <Text size={12}>Comments</Text>
-              </Block>
-            </Block>
-          </Block>
-          <Block flex>
-              <Block middle style={styles.nameInfo}>
-                <Text bold size={28} color="#32325D">
-                  Jessica Jones, 27
-                </Text>
-                <Text size={16} color="#32325D" style={{ marginTop: 10 }}>
-                  San Francisco, USA
-                </Text>
-              </Block>
-              <Block middle style={{ marginTop: 30, marginBottom: 16 }}>
-                <Block style={styles.divider} />
-              </Block>
-              <Block middle>
-                <Text size={16} color="#525F7F" style={{ textAlign: "center" }}>
-                  An artist of considerable range, Jessica name taken by
-                  Melbourne …
-                </Text>
-                <Button
-                  color="transparent"
-                  textStyle={{
-                    color: "#233DD2",
-                    fontWeight: "500",
-                    fontSize: 16
-                  }}
-                >
-                  Show more
-                </Button>
-              </Block>
-              <Block
-                row
-                style={{ paddingVertical: 14, alignItems: "baseline" }}
-              >
-                <Text bold size={16} color="#525F7F">
-                  Album
-                </Text>
-              </Block>
-              <Block
-                row
-                style={{ paddingBottom: 20, justifyContent: "flex-end" }}
-              >
-                <Button
-                  small
-                  color="transparent"
-                  textStyle={{ color: "#5E72E4", fontSize: 12 }}
-                >
-                  View all
-                </Button>
-              </Block>
-              <Block style={{ paddingBottom: -HeaderHeight * 2 }}>
-                <Block row space="between" style={{ flexWrap: "wrap" }}>
-                  {Images.Viewed.map((img, imgIndex) => (
-                    <Image
-                      source={{ uri: img }}
-                      key={`viewed-${img}`}
-                      resizeMode="cover"
-                      style={styles.thumb}
-                    />
-                  ))}
-                </Block>
-              </Block>
-          </Block>
-        </Block>
-                  </ScrollView>*/}
+        {
+           
+        }
       </Block>
     );
   }
@@ -341,7 +334,19 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     width: thumbMeasure,
     height: thumbMeasure
-  }
+  },
+
+inp: {
+  borderRadius: 20
+},
+createButton: {
+  width: width * 0.75,
+  marginTop: 15,
+  borderRadius: 20,
+  backgroundColor: '#434E9D',
+  
+},
+
 });
 
 export default Profile;

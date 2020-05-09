@@ -15,40 +15,37 @@ import { ScrollView } from "react-native-gesture-handler";
 
 const { width, height } = Dimensions.get("screen");
 
-class Register extends React.Component {
-
-  Home = () => this.props.navigation.navigate("Home");
-
+class Create extends React.Component {
   render() {
-    const { navigation } = this.props;
     return (
       <Block flex middle>
         <StatusBar hidden />
         <ImageBackground
           source={Images.RegisterBackground}
-          style={{ width, height, zIndex: 1, paddingTop: theme.SIZES.BASE * 6, }}
+          style={{ width, height, zIndex: 1, paddingTop: 60, }}
         >
           <Block flex middle>
-              <Block flex={0.25} middle style={styles.socialConnect}>
-                <Image source={Images.Logo1} style={{ width: 250, height:200, marginTop:50}}></Image>
-               
-                
-              </Block>
+            
+              
               <Block flex>
-                
-                <Block flex center>
+                <Block flex center style={{ height: 300, }}>
                   <KeyboardAvoidingView
-                    style={{ flex: 1, paddingTop:6, }}
+                    style={{ flex: 1, }}
                     behavior="padding"
                     enabled
                   >
-                    <ScrollView>
-                      <Block style={{ marginBottom: 75, }}></Block>
-                    <Block width={width * 0.8} style={{ marginBottom: 15, }}>
+                    <ScrollView showsVerticalScrollIndicator={false}>
+
+
+                    <Block flex={0.17} middle>
+                      <Image source={Images.Logo1} style={{ width: 150, height: 100, }}></Image>
+                    
+                    </Block>
+
+                    <Block width={width * 0.8} style={{ marginBottom: 15 }}>
                       <Input
-                      
                         borderless
-                        placeholder="Email"
+                        placeholder="First name"
                         iconContent={
                           <Icon
                             size={16}
@@ -59,12 +56,45 @@ class Register extends React.Component {
                           />
                         }
                         style={styles.inp}
+
                       />
                     </Block>
-                   
-                    <Block width={width * 0.8}>
+                    <Block width={width * 0.8} style={{ marginBottom: 15 }}>
                       <Input
-                        password
+                        borderless
+                        placeholder="Last name"
+                        iconContent={
+                          <Icon
+                            size={16}
+                            color={argonTheme.COLORS.ICON}
+                            name="hat-3"
+                            family="ArgonExtra"
+                            style={styles.inputIcons}
+                          />
+                        }
+                        style={styles.inp}
+
+                      />
+                    </Block>
+                    <Block width={width * 0.8} style={{ marginBottom: 15 }}>
+                      <Input
+                        borderless
+                        placeholder="Email"
+                        iconContent={
+                          <Icon
+                            size={16}
+                            color={argonTheme.COLORS.ICON}
+                            name="ic_mail_24px"
+                            family="ArgonExtra"
+                            style={styles.inputIcons}
+                          />
+                        }
+                        style={styles.inp}
+
+                      />
+                    </Block>
+                    <Block width={width * 0.8} style={{ marginBottom: 15 }}>
+                      <Input
                         borderless
                         placeholder="Password"
                         iconContent={
@@ -79,30 +109,33 @@ class Register extends React.Component {
                         style={styles.inp}
 
                       />
-                     
                     </Block>
-                    <Block row width={width * 0.75}>
-                      <Checkbox
-                        checkboxStyle={{
-                          borderWidth: 3
-                        }}
-                        color={argonTheme.COLORS.PRIMARY}
-                        label="I agree with the"
-                        
-                        color="#FFCC2A"
+                    <Block width={width * 0.8}>
+                      <Input
+                        password
+                        borderless
+                        placeholder="Confirm password"
+                        iconContent={
+                          <Icon
+                            size={16}
+                            color={argonTheme.COLORS.ICON}
+                            name="padlock-unlocked"
+                            family="ArgonExtra"
+                            style={styles.inputIcons}
+                          />
+                        }
+                        style={styles.inp}
+
                       />
-                      
-                     
-                      <Text color="#ffffff">&nbsp; Privacy Policy</Text>
+                    
                     </Block>
-                    <Block middle>
-                      <Button color="primary" style={styles.createButton} onPress={() => navigation.navigate("Home")} >
+                   
+                    <Block middle style={{ paddingBottom: 90, }}>
+                      <Button color="primary" style={styles.createButton}>
                         <Text bold size={14} color={argonTheme.COLORS.WHITE}>
-                          Log In
+                          CREATE ACCOUNT
                         </Text>
-                        
                       </Button>
-                     
                     </Block>
                     </ScrollView>
                   </KeyboardAvoidingView>
@@ -115,7 +148,6 @@ class Register extends React.Component {
     );
   }
 }
-
 
 const styles = StyleSheet.create({
   registerContainer: {
@@ -134,8 +166,10 @@ const styles = StyleSheet.create({
     overflow: "hidden"
   },
   socialConnect: {
-    
-    },
+    backgroundColor: argonTheme.COLORS.WHITE,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderColor: "#8898AA"
+  },
   socialButtons: {
     width: 120,
     height: 40,
@@ -155,7 +189,8 @@ const styles = StyleSheet.create({
     fontSize: 14
   },
   inputIcons: {
-    marginRight: 12
+    marginRight: 12,
+    borderRadius: 25
   },
   passwordCheck: {
     paddingLeft: 15,
@@ -165,14 +200,12 @@ const styles = StyleSheet.create({
   createButton: {
     width: width * 0.75,
     marginTop: 15,
-    borderRadius: 20,
+    borderRadius: 23,
     backgroundColor: '#FFCC2A',
-    
   },
   inp: {
     borderRadius: 20
   },
-  
 });
 
-export default Register;
+export default Create;

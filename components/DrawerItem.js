@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { StyleSheet, TouchableOpacity, Linking  } from "react-native";
 import { Block, Text, theme } from "galio-framework";
 
 import Icon from "./Icon";
@@ -53,6 +53,15 @@ class DrawerItem extends React.Component {
             family="ArgonExtra"
             size={14}
             color={focused ? "white" : argonTheme.COLORS.INFO}
+          />
+        );
+      case "Create":
+        return (
+          <Icon
+            name="calendar-date"
+            family="ArgonExtra"
+            size={14}
+            color={focused ? "white" : argonTheme.COLORS.DEFAULT}
           />
         );
       case "Getting Started":

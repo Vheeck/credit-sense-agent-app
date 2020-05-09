@@ -24,14 +24,23 @@ class Card extends React.Component {
     return (
       <Block row={horizontal} card flex style={cardContainer}>
         <TouchableWithoutFeedback onPress={() => navigation.navigate('Pro')}>
-          <Block flex style={imgContainer}>
-            <Image source={{uri: item.image}} style={imageStyles} />
+          <Block flex center style={imgContainer}>
+        <Text bold size={20} style={{color:'blue', }}>
+
+          Score
+        </Text>
+        <Text  style={{color:'blue', TextAlign:'center',}}>
+          320,989
+        </Text>
+        <Text style={{color:'blue'}}>
+          
+        </Text>
           </Block>
         </TouchableWithoutFeedback>
         <TouchableWithoutFeedback onPress={() => navigation.navigate('Pro')}>
           <Block flex space="between" style={styles.cardDescription}>
-            <Text size={14} style={styles.cardTitle}>{item.title}</Text>
-            <Text size={12} muted={!ctaColor} color={ctaColor || argonTheme.COLORS.ACTIVE} bold>{item.cta}</Text>
+            
+            <Text size={12} muted={!ctaColor} color={ctaColor || argonTheme.COLORS.ACTIVE} bold>Since last month</Text>
           </Block>
         </TouchableWithoutFeedback>
       </Block>
@@ -67,6 +76,8 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     elevation: 1,
     overflow: 'hidden',
+    width: 250,
+    
   },
   image: {
     // borderRadius: 3,
