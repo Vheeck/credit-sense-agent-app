@@ -21,8 +21,7 @@ function CustomDrawerContent({ drawerPosition, navigation, profile, focused, sta
     "Signup",
     "Createcustomer",
     "Payment",
-    "Loan",
-    "Creategroup",
+    "Creaktegroup",
     "Createloan",
     "Customer",
 

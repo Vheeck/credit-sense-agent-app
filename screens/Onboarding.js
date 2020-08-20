@@ -5,7 +5,7 @@ import {
   Dimensions,
   StatusBar,
   KeyboardAvoidingView,
-  Image
+  Image 
 } from "react-native";
 import { Block, Checkbox, Text, theme } from "galio-framework";
 
